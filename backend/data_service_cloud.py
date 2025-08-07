@@ -10,7 +10,6 @@ import yfinance as yf
 from datetime import datetime, timedelta
 import time
 from scipy.spatial.distance import euclidean
-from fastdtw import fastdtw
 import math
 
 # Symbol mapping for yfinance
@@ -289,12 +288,11 @@ def extract_pattern_features(pattern: List[Dict[str, Any]]) -> Dict[str, Any]:
 def calculate_pattern_distance(features1: Dict[str, Any], features2: Dict[str, Any]) -> float:
     """Calculate distance between two patterns"""
     try:
-        # Use FastDTW for time series comparison
-        distance, _ = fastdtw(features1['normalized_closes'], features2['normalized_closes'])
-        return distance
-    except:
-        # Fallback to Euclidean distance
+        # Use Euclidean distance for pattern comparison
         return euclidean(features1['normalized_closes'], features2['normalized_closes'])
+    except:
+        # Fallback to simple difference
+        return abs(len(features1['normalized_closes']) - len(features2['normalized_closes']))
 
 def calculate_move_percentage(pattern: List[Dict[str, Any]], length: int) -> float:
     """Calculate the percentage move after the pattern"""
