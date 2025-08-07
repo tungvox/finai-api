@@ -18,6 +18,15 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          mui: ['@mui/material', '@mui/icons-material', '@mui/lab'],
+          charts: ['lightweight-charts']
+        }
+      }
+    }
   }
 }) 
