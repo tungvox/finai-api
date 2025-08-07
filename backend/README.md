@@ -36,48 +36,6 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 The API will be available at `http://localhost:8000`
 
-## Deployment
-
-### Railway Deployment
-
-This backend is configured for easy deployment to Railway. See [RAILWAY_DEPLOYMENT.md](./RAILWAY_DEPLOYMENT.md) for detailed instructions.
-
-**Quick Deploy:**
-
-1. **Install Railway CLI** (if not already installed):
-   ```bash
-   npm install -g @railway/cli
-   ```
-
-2. **Deploy**:
-   ```bash
-   # Navigate to backend directory
-   cd backend
-   
-   # Login to Railway
-   railway login
-   
-   # Initialize and deploy
-   railway init
-   railway up
-   ```
-
-3. **Set Environment Variables** in Railway dashboard:
-   - `PORT`: Railway will set this automatically
-   - `PYTHON_VERSION`: `3.11.7`
-
-**Using Deployment Scripts:**
-- **Windows**: Run `deploy-railway.bat`
-- **Linux/Mac**: Run `./deploy-railway.sh`
-
-### Environment Configuration
-
-Railway will automatically set the `PORT` environment variable. For local development:
-```bash
-# Local development
-python run.py
-```
-
 ### Why Uvicorn?
 
 **Uvicorn** is an ASGI (Asynchronous Server Gateway Interface) server that's required to run FastAPI applications:

@@ -39,47 +39,6 @@ The application will be available at `http://localhost:3000`
 npm run build
 ```
 
-## Deployment
-
-### Vercel Deployment
-
-This frontend is configured for easy deployment to Vercel. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
-
-**Quick Deploy:**
-
-1. **Install Vercel CLI** (if not already installed):
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Deploy**:
-   ```bash
-   # Navigate to frontend directory
-   cd frontend
-   
-   # Deploy to Vercel
-   vercel
-   ```
-
-3. **Set Environment Variables** in Vercel dashboard:
-   - `VITE_API_BASE_URL`: Your production backend URL
-
-**Using Deployment Scripts:**
-- **Windows**: Run `deploy.bat`
-- **Linux/Mac**: Run `./deploy.sh`
-
-### Environment Configuration
-
-Create a `.env` file in the frontend directory:
-```env
-VITE_API_BASE_URL=https://your-backend-domain.com
-```
-
-For local development:
-```env
-VITE_API_BASE_URL=http://localhost:8000
-```
-
 ## Project Structure
 
 ```
